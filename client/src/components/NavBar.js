@@ -14,10 +14,10 @@ class NavBar extends Component {
       <React.Fragment>
         <nav className="nav-extended">
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo">
+            <a href="/" className="brand-logo">
               WKNDR
             </a>
-            <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+            <a href="/" data-target="mobile-demo" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </a>
             <ul id="nav-mobile" className="right hide-on-med-and-down" />

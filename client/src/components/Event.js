@@ -6,16 +6,13 @@ import M from "materialize-css";
 
 class Event extends Component {
   state = {
-    name: "Test Event",
-    pois: {}
+    name: "Test Event"
   };
 
   componentDidMount() {
+    console.log("initializing event");
     M.AutoInit();
-    let _pois = API.getEvent();
-    setTimeout(this.setState({ pois: _pois }), 5000);
-
-    //this.setState({ name: this.state.pois.results[Math.ceil(Math.random() * 11)].name });
+    API.getEvent().then(res => this.setState({ name: res.data.name }));
   }
 
   render() {

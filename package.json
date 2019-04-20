@@ -12,7 +12,13 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "proxy": "http://localhost:3000",
+  "HTTPS": true,
+  "proxy": {
+    "/api": {
+      "target": "https://localhost:3000",
+      "secure": false
+    }
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -27,6 +33,7 @@
     "google-map-react": "^1.1.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.0",
-    "react-materialize": "^3.1.1"
+    "react-materialize": "^3.1.1",
+    "yarn": "^1.15.2"
   }
 }

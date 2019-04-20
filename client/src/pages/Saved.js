@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+// import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Tabs } from "react-materialize";
 import { Tab } from "react-materialize";
@@ -9,7 +9,11 @@ import Event from "../components/Event";
 
 class Saved extends Component {
   state = {
-    events: ["food", "food", "food"]
+    events: ["food", "food", "food", "food", "food"]
+  };
+
+  resetEvents = () => {
+    this.forceUpdate();
   };
 
   render() {
@@ -18,7 +22,7 @@ class Saved extends Component {
         <h1>Your Wknd</h1>
         <Tabs className="tab-demo z-depth-1">
           <Tab title="PLN" active>
-            <button>PLN YOUR WKND</button>
+            <button onClick={this.resetEvents}>PLN UR WKND</button>
             <Table>
               <thead>
                 <tr>
@@ -27,7 +31,7 @@ class Saved extends Component {
               </thead>
               <tbody>
                 {this.state.events.map(event => (
-                  <Event />
+                  <Event key={this.state.events.indexOf(event) + Math.ceil(Math.random() * 100)} />
                 ))}
               </tbody>
             </Table>
