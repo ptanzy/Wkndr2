@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Tabs } from "react-materialize";
 import { Tab } from "react-materialize";
 import { Table } from "react-materialize";
+import Map from "../components/Map";
 
 class Saved extends Component {
   render() {
@@ -26,7 +27,12 @@ class Saved extends Component {
               </tbody>
             </Table>
           </Tab>
-          <Tab title="MAP">Google Maps rendered here</Tab>
+          <Tab title="MAP">
+            Google Maps rendered here
+            <div id="map">
+              <Map />
+            </div>
+          </Tab>
           <Tab title="YOU">Edit Account and Search Settings</Tab>
           <Tab title="SHARE">Share your WKND plans!</Tab>
         </Tabs>
