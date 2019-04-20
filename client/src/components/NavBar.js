@@ -12,18 +12,18 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav class="nav-extended">
-          <div class="nav-wrapper">
-            <a href="#" class="brand-logo">
+        <nav className="nav-extended">
+          <div className="nav-wrapper">
+            <a href="#" className="brand-logo">
               WKNDR
             </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-              <i class="material-icons">menu</i>
+            <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
             </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down" />
+            <ul id="nav-mobile" className="right hide-on-med-and-down" />
           </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
+        <ul className="sidenav" id="mobile-demo">
           <li>
             <a href="sass.html">Sass</a>
           </li>

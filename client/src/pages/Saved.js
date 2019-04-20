@@ -5,8 +5,13 @@ import { Tabs } from "react-materialize";
 import { Tab } from "react-materialize";
 import { Table } from "react-materialize";
 import Map from "../components/Map";
+import Event from "../components/Event";
 
 class Saved extends Component {
+  state = {
+    events: ["food", "food", "food"]
+  };
+
   render() {
     return (
       <div>
@@ -21,20 +26,20 @@ class Saved extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>No weekend plans yet?</td>
-                </tr>
+                {this.state.events.map(event => (
+                  <Event />
+                ))}
               </tbody>
             </Table>
           </Tab>
+          <Tab title="CLNDR">Share your WKND plans!</Tab>
           <Tab title="MAP">
             Google Maps rendered here
             <div id="map">
               <Map />
             </div>
           </Tab>
-          <Tab title="YOU">Edit Account and Search Settings</Tab>
-          <Tab title="SHARE">Share your WKND plans!</Tab>
+          <Tab title="ACCT">Edit Account and Search Settings</Tab>
         </Tabs>
       </div>
     );

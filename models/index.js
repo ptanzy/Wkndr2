@@ -1,3 +1,5 @@
 module.exports = {
-  Book: require("./books")
+  Book: require("./books"),
+  Event: require("./event"),
+  Itinerary: require("./itinerary")
 };
