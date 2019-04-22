@@ -30,6 +30,7 @@
     "@fullcalendar/daygrid": "^4.0.1",
     "@fullcalendar/react": "^4.0.2-beta",
     "express": "^4.16.4",
+    "foundation-sites": "^6.5.3",
     "google-map-react": "^1.1.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.0",
