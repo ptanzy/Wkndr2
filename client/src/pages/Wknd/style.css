@@ -1,3 +1,4 @@
+
 .md-tabs {
   background-color: #1779BA;
 }
@@ -18,7 +19,7 @@
 .md-tabs > .tabs {
   margin: 0;
   border: 0;
-  background: #1779BA;
+  background: rgb(110, 106, 90);
   list-style-type: none;
   display: table;
   width: 100%;
@@ -32,7 +33,7 @@
 }
 
 .md-tabs > .tabs > .tabs-title.is-active > a {
-  color: #3ADB76;
+  color: #000000;
   background-color: transparent;
   outline: none;
 }
@@ -63,7 +64,7 @@
 }
 
 .slide {
-  background: #3ADB76;
+  background: #000000;
   width: calc(100% / 4);
   height: 4px;
   position: relative;
@@ -108,9 +109,10 @@
     background-color: #fefefe;
     color: #0a0a0a;
   }
-  > .accordion > .accordion-item > .accordion-title:focus {
+  .md-tabs > .accordion > .accordion-item > .accordion-title:focus {
     background-color: #1779BA;
     color: #3ADB76;
     outline: none;
   }
 }
+

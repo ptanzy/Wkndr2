@@ -17,7 +17,7 @@ class Saved extends Component {
 
   render() {
     return (
-      <div>
+      <div class="md-tabs">
         <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
           <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
           <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
@@ -29,7 +29,7 @@ class Saved extends Component {
         <div class="tabs-content" data-tabs-content="collapsing-tabs">
           <div class="tabs-panel is-active" id="plan-tab">
             <button onClick={this.resetEvents}>PLN UR WKND</button>
-            <Table>
+            <table class="responsive-card-table unstriped">
               <thead>
                 <tr>
                   <th>Your Itinerary</th>
@@ -40,7 +40,7 @@ class Saved extends Component {
                   <Event label={"Your Itinerary"} key={this.state.events.indexOf(event) + Math.ceil(Math.random() * 100)} />
                 ))}
               </tbody>
-            </Table>
+            </table>
           </div>
           <div class="tabs-panel" id="calendar-tab">
             Share your WKND plans!
