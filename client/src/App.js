@@ -5,6 +5,8 @@ import Saved from "./pages/Saved";
 import Wknd from "./pages/Wknd/index";
 import NoMatch from "./pages/NoMatch";
 import NavBar from "./components/NavBar/index";
+import "foundation-sites/dist/css/foundation.min.css";
+import "foundation-sites/dist/js/foundation.min.js";
 
 function App() {
   return (
