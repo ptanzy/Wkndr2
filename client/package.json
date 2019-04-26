@@ -9,6 +9,8 @@
     "@fullcalendar/daygrid": "^4.0.1",
     "@fullcalendar/react": "^4.0.2-beta",
     "axios": "^0.18.0",
+    "foundation-sites": "^6.5.3",
+    "fullcalendar-reactwrapper": "^1.0.7",
     "google-map-react": "^1.1.4",
     "materialize-css": "^1.0.0",
     "react": "^16.6.3",

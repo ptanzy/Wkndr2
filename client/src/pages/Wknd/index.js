@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Table from "../../components/Table/index";
 import Map from "../../components/Map";
 import Event from "../../components/Event";
+import Calendar from "../../components/Calendar";
 import "./style.css";
 
 class Saved extends Component {
@@ -44,6 +45,7 @@ class Saved extends Component {
           </div>
           <div class="tabs-panel" id="calendar-tab">
             Share your WKND plans!
+            <Calendar/>
           </div>
           <div class="tabs-panel" id="map-tab">
             Google Maps rendered here
