@@ -4,7 +4,9 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import Wknd from "./pages/Wknd/index";
 import NoMatch from "./pages/NoMatch";
-import NavBar from "./components/NavBar/index";
+import Landing from "./pages/Landing/index";
+import NavBar from "./components/NavBar";
+//import withAuthentication from './withAuthentication';
 import "foundation-sites/dist/css/foundation.min.css";
 import "foundation-sites/dist/js/foundation.min.js";
 
@@ -14,7 +16,7 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/urwknd" component={Wknd} />
