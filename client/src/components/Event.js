@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
-// Import Materialize
-import M from "materialize-css";
-
 class Event extends Component {
   state = {
     name: "Test Event"
@@ -11,7 +8,6 @@ class Event extends Component {
 
   componentDidMount() {
     console.log("initializing event");
-    M.AutoInit();
     API.getEvent().then(res => this.setState({ name: res.data.name }));
   }
 
@@ -19,7 +15,7 @@ class Event extends Component {
     return (
       <React.Fragment>
         <tr>
-          <td>{this.state.name}</td>
+          <td data-label={this.props.label}>{this.state.name}</td>
         </tr>
       </React.Fragment>
     );

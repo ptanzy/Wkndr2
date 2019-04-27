@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "materialize-css/dist/css/materialize.min.css";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
+import Wknd from "./pages/Wknd/index";
 import NoMatch from "./pages/NoMatch";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/index";
+import "foundation-sites/dist/css/foundation.min.css";
+import "foundation-sites/dist/js/foundation.min.js";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route exact path="/" component={Search} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved" component={Saved} />
+          <Route exact path="/urwknd" component={Wknd} />
           <Route component={NoMatch} />
         </Switch>
       </div>
