@@ -6,7 +6,7 @@ import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Landing from "./pages/Landing/index";
 import NavBar from "./components/NavBar";
-import withAuthentication from './withAuthentication';
+//import withAuthentication from './withAuthentication';
 import "foundation-sites/dist/css/foundation.min.css";
 import "foundation-sites/dist/js/foundation.min.js";
 
