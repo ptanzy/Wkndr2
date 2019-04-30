@@ -5,6 +5,7 @@ import Table from "../../components/Table/index";
 import Map from "../../components/Map";
 import Event from "../../components/Event";
 import Calendar from "../../components/Calendar";
+import Account from "../../components/Account/index";
 import "./style.css";
 
 class Saved extends Component {
@@ -23,7 +24,7 @@ class Saved extends Component {
           <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
           <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
           <li class="tabs-title"><a href="#map-tab">MAP</a></li>
-          <li class="tabs-title"><a href="#account-tab">ACCT 4</a></li>
+          <li class="tabs-title"><a href="#account-tab">ACCT</a></li>
           <div class="slide"></div>
         </ul>
 
@@ -55,6 +56,7 @@ class Saved extends Component {
           </div>
           <div class="tabs-panel" id="account-tab">
             Edit Account and Search Settings
+            <Account/>
           </div>
 
         </div>
