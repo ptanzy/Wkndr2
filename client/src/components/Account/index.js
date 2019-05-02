@@ -6,9 +6,29 @@ class Account extends Component {
 
   componentDidMount() {
     $(document).foundation()
+    $('.slider').on('changed.zf.slider', e => {
+      const sliderVal = parseInt(
+        e.target.firstChild.attributes.getNamedItem('aria-valuenow').value,
+        10,
+      )
+      const search = {...this.state.search}
+      const eventType = (e.target.attributes["sliderevent"]? e.target.attributes["sliderevent"].value: e.target.attributes["sliderdist"].value);
+      const  prevVal = search.eventAmounts[eventType];
+      search.eventAmounts[eventType] = sliderVal;
+      if(eventType != "primDistance" && eventType !== "secDistance"){
+        this.handleEventAmntChange(prevVal, sliderVal);
+      }
+      this.setState({search})
+    })
+  }
+
+  componentWillUnmount() {
+    $('.slider').foundation('_destroy')
+    $('.slider').off('changed.zf.slider')
   }
 
   state = {
+    maxEvents: 6,
     search: {
       primEvent: "",
       eventAmounts: {
@@ -19,7 +39,7 @@ class Account extends Component {
         attractions: 0,
         nightlife: 0,
         culture: 0, 
-        selfCare: 0
+        selfcare: 0
       },
       primDistance: 5,
       secDistance: 2
@@ -28,16 +48,15 @@ class Account extends Component {
 
   handlePrimEventChange = event => {
     console.log(event);
-    var search = {...this.state.search}
+    const search = {...this.state.search}
     search.primEvent = event.target.value;
     this.setState({search})
   };
 
-  handleEventAmntChange = event => {
-    console.log(event);
-    var search = {...this.state.search}
-    search.eventAmounts = event.target.value;
-    this.setState({search})
+  handleEventAmntChange = (prev, curr) => {
+    const change = prev-curr;
+    const val = this.state.maxEvents + change;
+    this.setState({maxEvents: val})
   };
 
   handleFormSubmit = event => {
@@ -49,16 +68,16 @@ class Account extends Component {
       <React.Fragment>
         <form id="searchForm" onSubmit={e => e.preventDefault()}>
           <div id="primaryEvent">
-            <ul class="accordion" data-accordion  data-allow-all-closed="true">
-              <li class="accordion-item" data-accordion-item>
-                <a href="#" class="accordion-title">Primary Event</a>
-                <div class="accordion-content" data-tab-content>
+            <ul className="accordion" data-accordion  data-allow-all-closed="true">
+              <li className="accordion-item" data-accordion-item>
+                <a href="#" className="accordion-title">Primary Event</a>
+                <div className="accordion-content" data-tab-content>
                   <p>The initial event of your wknd trip</p>
                 </div>
               </li>
             </ul>
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-5">
+            <div className="grid-x grid-margin-x">
+              <div className="cell small-5">
                 <label>Primary Event
                   <select onChange={this.handlePrimEventChange}>
                     <option value="" disabled="disabled" selected="selected"></option>
@@ -69,154 +88,175 @@ class Account extends Component {
                     <option value="attractions">Attractions</option>
                     <option value="nightlife">Nightlife</option>
                     <option value="culture">Culture</option>
-                    <option value="selfCare">Self-care</option>
+                    <option value="selfcare">Self-care</option>
                   </select>
                 </label>
               </div>
             </div>
           </div>
           <div id="eventCategories">
-            <ul class="accordion" data-accordion  data-allow-all-closed="true">
-              <li class="accordion-item" data-accordion-item>
-                <a href="#" class="accordion-title">Event Categories</a>
-                <div class="accordion-content" data-tab-content>
+            <ul className="accordion" data-accordion  data-allow-all-closed="true">
+              <li className="accordion-item" data-accordion-item>
+                <a href="#" className="accordion-title">Event Categories</a>
+                <div className="accordion-content" data-tab-content>
                   <p>The six event categories that you can choose from to create your wknd trip</p>
                 </div>
               </li>
             </ul>
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-10">
+            <div className="grid-x grid-margin-x">
+              <div className="cell small-10">
                 <label>Nature
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderNature"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="nature" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nature}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderNature" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nature}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
+                  
                 </label>
               </div>
-              <div class="cell small-2">
-                <input type="number" id="sliderNature" onChange={this.handleEventAmntChange}></input>
+              <div className="cell small-2">
+              <input type="number" id="sliderNature" ></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Food
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderFood"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="food" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.food}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderFood" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.food}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderFood"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Amusement
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderAmusement"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="amusement" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.amusement}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderAmusement" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.amusement}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderAmusement"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Shopping
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderShopping"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="shopping" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.shopping}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderShopping" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.shopping}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderShopping"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Attractions
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderAttractions"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="attractions" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.attractions}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderAttractions" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.attractions}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderAttractions"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Night Life
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderNightLife"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="nightlife" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nightlife}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderNightLife" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nightlife}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderNightLife"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Culture
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderCulture"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="culture" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.culture}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderCulture" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.culture}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderCulture"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Self-care
-                  <div class="slider" data-slider data-initial-start="0" data-end="5">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderSelfCare"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
+                      sliderEvent="selfcare" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.selfcare}>
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderSelfCare" 
+                        aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.selfcare}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                   </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="sliderSelfCare"></input>
               </div>
             </div>
           </div>  
           <div id="distances">
-            <ul class="accordion" data-accordion  data-allow-all-closed="true">
-              <li class="accordion-item" data-accordion-item>
-                <a href="#" class="accordion-title">Distance</a>
-                <div class="accordion-content" data-tab-content>
+            <ul className="accordion" data-accordion  data-allow-all-closed="true">
+              <li className="accordion-item" data-accordion-item>
+                <a href="#" className="accordion-title">Distance</a>
+                <div className="accordion-content" data-tab-content>
                   <p>Primary Distance: Distance to search from your current location to determine your primary event</p>
                   <p>Secondary Distance: Distance to search from your primary event to determine all secondary events</p>
                 </div>
               </li>
             </ul>
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-10">
+            <div className="grid-x grid-margin-x">
+              <div className="cell small-10">
                 <label>Primary
-                  <div class="slider" data-slider data-start="5" data-end="300">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="distancePrim"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-start="5" data-end="300"
+                      sliderDist="primDistance" aria-valuemin="5" aria-valuemax="300" aria-valuenow={this.state.search.primDistance}>                  
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="distancePrim" 
+                        aria-valuemin="5" aria-valuemax="300" aria-valuenow={this.state.search.primDistance}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="distancePrim"></input>
               </div>
-              <div class="cell small-10">
+              <div className="cell small-10">
                 <label>Secondary
-                  <div class="slider" data-slider data-start="2" data-end="25">
-                    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="distanceSec"></span>
-                    <span class="slider-fill" data-slider-fill></span>
+                  <div className="slider" data-slider data-start="2" data-end="25"
+                      sliderDist="secDistance" aria-valuemin="2" aria-valuemax="25" aria-valuenow={this.state.search.secDistance}>   
+                    <span className="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="distanceSec" 
+                        aria-valuemin="2" aria-valuemax="25" aria-valuenow={this.state.search.secDistance}></span>
+                    <span className="slider-fill" data-slider-fill></span>
                   </div>
                 </label>
               </div>
-              <div class="cell small-2">
+              <div className="cell small-2">
                 <input type="number" id="distanceSec"></input>
               </div>
             </div>
           </div>
-          <div class="grid-x grid-margin-x">
-            <div class="cell small-5">
-              <button class="button" type="button" onClick={this.handleFormSave}>Reset</button>
+          <div className="grid-x grid-margin-x">
+            <div className="cell small-5">
+              <button className="button" type="button" onClick={this.handleFormSave}>Reset</button>
             </div>
           </div>
-          <div class="grid-x grid-margin-x">
-            <div class="cell small-5">
+          <div className="grid-x grid-margin-x">
+            <div className="cell small-5">
               <label>Saved Search Settings
                 <select>
                 </select>
