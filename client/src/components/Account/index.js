@@ -104,7 +104,7 @@ class Account extends Component {
               </li>
             </ul>
             <div className="grid-x grid-margin-x">
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Nature
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="nature" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nature}>
@@ -115,10 +115,10 @@ class Account extends Component {
                   
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
               <input type="number" id="sliderNature" ></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Food
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="food" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.food}>
@@ -128,10 +128,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderFood"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Amusement
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="amusement" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.amusement}>
@@ -141,10 +141,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderAmusement"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Shopping
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="shopping" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.shopping}>
@@ -154,10 +154,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderShopping"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Attractions
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="attractions" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.attractions}>
@@ -167,10 +167,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderAttractions"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Night Life
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="nightlife" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.nightlife}>
@@ -180,10 +180,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderNightLife"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Culture
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="culture" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.culture}>
@@ -193,10 +193,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderCulture"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Self-care
                   <div className="slider" data-slider data-initial-start="0" data-end={this.state.maxEvents}
                       sliderEvent="selfcare" aria-valuemin="0" aria-valuemax={this.state.maxEvents} aria-valuenow={this.state.search.eventAmounts.selfcare}>
@@ -206,7 +206,7 @@ class Account extends Component {
                   </div>
                   </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="sliderSelfCare"></input>
               </div>
             </div>
@@ -222,7 +222,7 @@ class Account extends Component {
               </li>
             </ul>
             <div className="grid-x grid-margin-x">
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Primary
                   <div className="slider" data-slider data-start="5" data-end="300"
                       sliderDist="primDistance" aria-valuemin="5" aria-valuemax="300" aria-valuenow={this.state.search.primDistance}>                  
@@ -232,10 +232,10 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="distancePrim"></input>
               </div>
-              <div className="cell small-10">
+              <div className="cell small-5">
                 <label>Secondary
                   <div className="slider" data-slider data-start="2" data-end="25"
                       sliderDist="secDistance" aria-valuemin="2" aria-valuemax="25" aria-valuenow={this.state.search.secDistance}>   
@@ -245,7 +245,7 @@ class Account extends Component {
                   </div>
                 </label>
               </div>
-              <div className="cell small-2">
+              <div className="cell small-1">
                 <input type="number" id="distanceSec"></input>
               </div>
             </div>

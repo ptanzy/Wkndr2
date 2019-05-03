@@ -20,13 +20,6 @@ class Saved extends Component {
   render() {
     return (
       <div class="md-tabs">
-        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="false" data-multi-expand="false">
-          <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
-          <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
-          <li class="tabs-title"><a href="#map-tab">MAP</a></li>
-          <li class="tabs-title"><a href="#account-tab">ACCT</a></li>
-          <div class="slide"></div>
-        </ul>
 
         <div class="tabs-content" data-tabs-content="collapsing-tabs">
           <div class="tabs-panel is-active" id="plan-tab">
@@ -60,6 +53,14 @@ class Saved extends Component {
           </div>
 
         </div>
+
+        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="false" data-multi-expand="false">
+          <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
+          <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
+          <li class="tabs-title"><a href="#map-tab">MAP</a></li>
+          <li class="tabs-title"><a href="#account-tab">ACCT</a></li>
+          <div class="slide"></div>
+        </ul>
 
         {/* <h1>Your Wknd</h1>
         <Tabs className="tab-demo z-depth-1">

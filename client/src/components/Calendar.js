@@ -57,6 +57,7 @@ class Calendar extends React.Component {
     return (
       <div id="calendar">
         <FullCalendar
+             height={window.innerHeight*.565}
              id = "wkndr2"
          header = {{
             left: 'prev,next today myCustomButton',
