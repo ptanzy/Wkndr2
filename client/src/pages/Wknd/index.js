@@ -17,26 +17,6 @@ class Saved extends Component {
     this.forceUpdate();
   };
 
-  closeOtherTabs = (event) => {
-    console.log(event);
-    const parent = event.target.parentElement;
-    let nextSib = parent.nextSibling;
-    while(nextSib){
-      if(nextSib.classList.contains("is-active")){
-        document.getElementById(nextSib.children[1].id).click();
-      }
-      nextSib = nextSib.nextSibling;
-    }
-    let prevSib = parent.previousSibling;
-    while(prevSib){
-      if(prevSib.classList.contains("is-active")){
-        document.getElementById(nextSib.children[1].id).click();
-      }
-      prevSib = prevSib.previousSibling;
-    }
-  };
-
-
   render() {
     return (
       <div class="md-tabs">

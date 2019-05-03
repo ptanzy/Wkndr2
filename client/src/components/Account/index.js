@@ -252,11 +252,6 @@ class Account extends Component {
           </div>
           <div className="grid-x grid-margin-x">
             <div className="cell small-5">
-              <button className="button" type="button" onClick={this.handleFormSave}>Reset</button>
-            </div>
-          </div>
-          <div className="grid-x grid-margin-x">
-            <div className="cell small-5">
               <label>Saved Search Settings
                 <select>
                 </select>
