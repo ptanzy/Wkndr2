@@ -5,6 +5,7 @@ import Table from "../../components/Table/index";
 import Map from "../../components/Map";
 import Event from "../../components/Event";
 import Calendar from "../../components/Calendar";
+import Account from "../../components/Account/index";
 import "./style.css";
 
 class Saved extends Component {
@@ -19,13 +20,6 @@ class Saved extends Component {
   render() {
     return (
       <div class="md-tabs">
-        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
-          <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
-          <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
-          <li class="tabs-title"><a href="#map-tab">MAP</a></li>
-          <li class="tabs-title"><a href="#account-tab">ACCT 4</a></li>
-          <div class="slide"></div>
-        </ul>
 
         <div class="tabs-content" data-tabs-content="collapsing-tabs">
           <div class="tabs-panel is-active" id="plan-tab">
@@ -55,9 +49,18 @@ class Saved extends Component {
           </div>
           <div class="tabs-panel" id="account-tab">
             Edit Account and Search Settings
+            <Account/>
           </div>
 
         </div>
+
+        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="false" data-multi-expand="false">
+          <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
+          <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
+          <li class="tabs-title"><a href="#map-tab">MAP</a></li>
+          <li class="tabs-title"><a href="#account-tab">ACCT</a></li>
+          <div class="slide"></div>
+        </ul>
 
         {/* <h1>Your Wknd</h1>
         <Tabs className="tab-demo z-depth-1">
