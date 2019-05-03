@@ -17,10 +17,30 @@ class Saved extends Component {
     this.forceUpdate();
   };
 
+  closeOtherTabs = (event) => {
+    console.log(event);
+    const parent = event.target.parentElement;
+    let nextSib = parent.nextSibling;
+    while(nextSib){
+      if(nextSib.classList.contains("is-active")){
+        document.getElementById(nextSib.children[1].id).click();
+      }
+      nextSib = nextSib.nextSibling;
+    }
+    let prevSib = parent.previousSibling;
+    while(prevSib){
+      if(prevSib.classList.contains("is-active")){
+        document.getElementById(nextSib.children[1].id).click();
+      }
+      prevSib = prevSib.previousSibling;
+    }
+  };
+
+
   render() {
     return (
       <div class="md-tabs">
-        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="true" data-multi-expand="true">
+        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="false" data-multi-expand="false">
           <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
           <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
           <li class="tabs-title"><a href="#map-tab">MAP</a></li>
