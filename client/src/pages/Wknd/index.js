@@ -20,7 +20,6 @@ class Saved extends Component {
   render() {
     return (
       <div class="md-tabs">
-
         <div class="tabs-content" data-tabs-content="collapsing-tabs">
           <div class="tabs-panel is-active" id="plan-tab">
             <button onClick={this.resetEvents}>PLN UR WKND</button>
@@ -32,14 +31,20 @@ class Saved extends Component {
               </thead>
               <tbody>
                 {this.state.events.map(event => (
-                  <Event label={"Your Itinerary"} key={this.state.events.indexOf(event) + Math.ceil(Math.random() * 100)} />
+                  <Event
+                    label={"Your Itinerary"}
+                    key={
+                      this.state.events.indexOf(event) +
+                      Math.ceil(Math.random() * 100)
+                    }
+                  />
                 ))}
               </tbody>
             </table>
           </div>
           <div class="tabs-panel" id="calendar-tab">
             Share your WKND plans!
-            <Calendar/>
+            <Calendar />
           </div>
           <div class="tabs-panel" id="map-tab">
             Google Maps rendered here
@@ -49,17 +54,30 @@ class Saved extends Component {
           </div>
           <div class="tabs-panel" id="account-tab">
             Edit Account and Search Settings
-            <Account/>
+            <Account />
           </div>
-
         </div>
 
-        <ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="collapsing-tabs" data-allow-all-closed="false" data-multi-expand="false">
-          <li class="tabs-title is-active"><a href="#plan-tab" aria-selected="true">PLN</a></li>
-          <li class="tabs-title"><a href="#calendar-tab">CLNDR</a></li>
-          <li class="tabs-title"><a href="#map-tab">MAP</a></li>
-          <li class="tabs-title"><a href="#account-tab">ACCT</a></li>
-          <div class="slide"></div>
+        <ul
+          class="tabs"
+          data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs"
+          id="collapsing-tabs"
+          data-allow-all-closed="false"
+          data-multi-expand="false"
+        >
+          <li class="tabs-title is-active">
+            <a href="#plan-tab">PLN</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#calendar-tab">CLNDR</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#map-tab">MAP</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#account-tab">ACCT</a>
+          </li>
+          <div class="slide" />
         </ul>
 
         {/* <h1>Your Wknd</h1>
