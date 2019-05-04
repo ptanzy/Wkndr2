@@ -8,7 +8,7 @@ class Search extends Component {
       <div>
         <h1>Wkndr</h1>
         <li>
-          <Link to="/saved">Sign In</Link>
+          <Link to="/urwknd">Sign In</Link>
         </li>
         <li>
           <Link to="/search">Sign Up</Link>

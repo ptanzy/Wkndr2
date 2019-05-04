@@ -11,7 +11,7 @@ export default {
     return axios.post("/api/events", eventData);
   },
   getItinerary: function(id) {
-    return axios.get("/api/itineraries" + id);
+    return axios.get("/api/itineraries/" + id);
   },
   deleteItinerary: function(id) {
     return axios.delete("/api/itineraries/" + id);
@@ -23,9 +23,8 @@ export default {
     return axios.get("/api/itineraries");
   },
   updateItinerary: function(id, itineraryData) {
-    return axios.post("/api/itineraries" + id, itineraryData);
+    return axios.post("/api/itineraries/" + id, itineraryData);
   },
-
   getUser: function(id) {
     return axios.get("/api/users" + id);
   },
@@ -36,6 +35,6 @@ export default {
     return axios.post("/api/users", itineraryData);
   },
   updateUser: function(id, itineraryData) {
-    return axios.post("/api/users" + id, itineraryData);
+    return axios.post("/api/users/" + id, itineraryData);
   }
 };

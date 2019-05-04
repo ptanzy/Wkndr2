@@ -3,9 +3,8 @@ import "./style.css";
 const $ = require("jquery");
 
 class NavBar extends Component {
-
   componentDidMount() {
-    $(document).foundation()
+    $(document).foundation();
     $("[data-menu-underline-from-center] a").addClass("underline-from-center");
   }
 
@@ -14,9 +13,9 @@ class NavBar extends Component {
       <React.Fragment>
         <nav class="hover-underline-menu" data-menu-underline-from-center>
           <ul class="menu align-left">
-            <li><a href="/urwknd">URWKND</a></li>
-            <li><a href="/saved">Saved</a></li>
-            <li><a href="/search">Search</a></li>
+            <li>
+              <a href="/urwknd">URWKND</a>
+            </li>
           </ul>
         </nav>
       </React.Fragment>
