@@ -16,7 +16,7 @@ app.use(
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use("/static", express.static(path.join(__dirname, "client/build")));
+  app.use("/static", express.static(path.join(__dirname, "client/public")));
 }
 
 // Add routes, both API and view
@@ -30,9 +30,5 @@ app.listen(PORT, () => {
 });
 
 app.get("*", (req, res) => {
-  let url = path.join(__dirname, "../client/public", "index.html");
-  if (!url.startsWith("/app/"))
-    // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
