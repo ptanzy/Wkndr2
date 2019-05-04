@@ -75,7 +75,7 @@ class Account extends Component {
               data-allow-all-closed="true"
             >
               <li className="accordion-item" data-accordion-item>
-                <a href="#" className="accordion-title">
+                <a href="/" className="accordion-title">
                   Primary Event
                 </a>
                 <div className="accordion-content" data-tab-content>
@@ -109,7 +109,7 @@ class Account extends Component {
               data-allow-all-closed="true"
             >
               <li className="accordion-item" data-accordion-item>
-                <a href="#" className="accordion-title">
+                <a href="/" className="accordion-title">
                   Event Categories
                 </a>
                 <div className="accordion-content" data-tab-content>
@@ -370,7 +370,7 @@ class Account extends Component {
               data-allow-all-closed="true"
             >
               <li className="accordion-item" data-accordion-item>
-                <a href="#" className="accordion-title">
+                <a href="/" className="accordion-title">
                   Distance
                 </a>
                 <div className="accordion-content" data-tab-content>
