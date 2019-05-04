@@ -28,7 +28,3 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wkndr");
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});

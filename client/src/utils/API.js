@@ -24,5 +24,18 @@ export default {
   },
   updateItinerary: function(id, itineraryData) {
     return axios.post("/api/itineraries" + id, itineraryData);
+  },
+
+  getUser: function(id) {
+    return axios.get("/api/users" + id);
+  },
+  deleteUser: function(id) {
+    return axios.delete("/api/users/" + id);
+  },
+  saveUser: function(itineraryData) {
+    return axios.post("/api/users", itineraryData);
+  },
+  updateUser: function(id, itineraryData) {
+    return axios.post("/api/users" + id, itineraryData);
   }
 };

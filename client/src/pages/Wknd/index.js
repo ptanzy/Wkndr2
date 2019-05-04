@@ -10,7 +10,7 @@ import "./style.css";
 
 class Saved extends Component {
   state = {
-    events: ["food", "food", "food", "food", "food"]
+    events: ["food", "shopping", "movies", "park", "spa"]
   };
 
   resetEvents = () => {
