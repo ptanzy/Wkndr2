@@ -12,13 +12,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "HTTPS": true,
-  "proxy": {
-    "/api": {
-      "target": "https://localhost:3000",
-      "secure": false
-    }
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
